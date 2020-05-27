@@ -1,5 +1,6 @@
 package cz.orany.m20f
 
+import io.micronaut.context.ApplicationContext
 import spock.lang.AutoCleanup
 import spock.lang.Specification
 
@@ -7,10 +8,14 @@ class MnTwoZeroFunctionHandlerSpec extends Specification {
 
     MnTwoZeroFunctionService service = Mock(MnTwoZeroFunctionService)
 
-    @AutoCleanup MnTwoZeroFunctionHandler handler = new MnTwoZeroFunctionHandler()
+    @AutoCleanup ApplicationContext context
+    @AutoCleanup MnTwoZeroFunctionHandler handler
 
     void setup() {
-        handler.mnTwoZeroFunctionService = service
+        context = ApplicationContext.build().build()
+        context.registerSingleton(MnTwoZeroFunctionService, service)
+        context.start()
+        handler = new MnTwoZeroFunctionHandler(context)
     }
 
     void 'handle event'() {
