@@ -1,0 +1,5 @@
+profile: function-aws
+defaultPackage: cz.orany.m20f
+---
+testFramework: spock
+sourceLanguage: groovy

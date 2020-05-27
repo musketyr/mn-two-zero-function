@@ -1,0 +1,9 @@
+micronaut:
+  function:
+    name: mn-two-zero-function
+mn:
+ two:
+  zero:
+   function:
+    value: test
+

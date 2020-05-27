@@ -1,0 +1,7 @@
+POST http://localhost:8080/mn-two-zero-function
+Content-Type: application/json
+Accept: application/json;text/plain
+
+{
+
+}
